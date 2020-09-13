@@ -1,5 +1,3 @@
-# ICS3U
+# ICS3
 
-### See the [wiki](https://github.com/mrseidel-classes/ICS3U/wiki) for more information.
-
-![ICS3U OLGs](https://github.com/mrseidel-classes/ICS3U/wiki/images/ICS3U.jpg)
+See the notes section for various notes referred to throughout the course.
