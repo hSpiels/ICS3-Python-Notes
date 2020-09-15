@@ -42,6 +42,18 @@ print(greeting)
 
 When printing out variables, you will want to wrap the text with a ```str()``` function if you know that the values might be numeric.  If you know they are strings you can print out the information directly to the ```print()``` function.
 
+###Checking the type of a variable
+
+Python will tell you what type it thinks a specific piece of data or variable is using the `type()` command.
+
+```
+>>> type(4)
+<class 'int'>
+>>> type(2.5)
+<class 'float'>
+>>> type("hello world")
+<class 'str'>
+```
 
 ### Mathematical Operations
 
