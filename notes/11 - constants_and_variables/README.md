@@ -42,6 +42,18 @@ print(greeting)
 
 When printing out variables, you will want to wrap the text with a ```str()``` function if you know that the values might be numeric.  If you know they are strings you can print out the information directly to the ```print()``` function.
 
+### Checking the type of a variable
+
+Python will tell you what type it thinks a specific piece of data or variable is using the `type()` command.
+
+```
+>>> type(4)
+<class 'int'>
+>>> type(2.5)
+<class 'float'>
+>>> type("hello world")
+<class 'str'>
+```
 
 ### Mathematical Operations
 
@@ -89,3 +101,5 @@ print(name)
 ```
 
 The above program prompts the user with ```Enter your name: ``` and waits for the user to enter information to continue.  Afterwards, it will then just print out the name entered.  For more examples, check the ```basics.py``` file above.
+
+Note: Don't forget that if you want a numeric value from a user input you need to convert it to the correct type.

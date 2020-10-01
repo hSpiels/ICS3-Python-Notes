@@ -76,4 +76,4 @@ For more examples, check out ```loopingFor.py``` file above.
 A few of the commands and options that open up with a ```while``` or ```for``` loop is:
 * ```break``` - To break out of a loop early
 * ```continue``` - To jump back to the beginning of the loop early.  This should be **rarely** used.
-* ```pass``` - This is something to be used either (a) temporarily, or (b) to ensure your program runs properly
+* ```pass``` - A placeholder statement. This is something to be used either (a) temporarily, or (b) to ensure your program runs properly

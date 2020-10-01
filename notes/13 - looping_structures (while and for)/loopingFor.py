@@ -3,9 +3,9 @@
 # Purpose:     To provide information about how for loops work as a looping
 #			   structure in Python
 #
-# Author:      Mr. Seidel
+# Author:      Mr. Seidel. Mr Brooks
 # Created:     17-Aug-2018
-# Updated:     22-Aug-2018
+# Updated:     17-Sept-2020
 #-----------------------------------------------------------------------------
 
 # For loop to count up
@@ -18,7 +18,7 @@ for count in range(5, 0, -1):
 	print(str(count))
 
 
-# Using an "else" statement with a while loop
+# Using an "else" statement with a for loop
 for count in range(0, 5, 1):
 	print("Else: " + str(count))
 else:
