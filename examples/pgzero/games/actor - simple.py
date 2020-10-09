@@ -9,7 +9,6 @@
 WIDTH = 200
 HEIGHT = 200
 
-gameState = ''
 
 #Create the actor object
 knight = Actor('knight_m_run_anim_f0')
@@ -21,7 +20,6 @@ knight.frame = 0
 
 def on_key_up(key):
     '''Check to see if a key has been released'''
-    global gameState #Make sure you make globals if necessary
     global knight
     
     if key == keys.A:
