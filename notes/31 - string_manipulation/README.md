@@ -13,7 +13,7 @@ With this in mind, we can **access** any part of a string; however, strings **ar
 
 There are ways to manipulate the string as we see fit, but it will take some finesse work to complete it properly.  For example, I can change the ```fruit``` variable to have all uppercase letters by using ```fruit = fruit.upper()```.
 
-There are a lot of other function available to work on strings.  See the ```stringManipulation.py``` file above to see some examples at work.
+There are a lot of other function available to work on strings.  See the ```stringManipulation.py``` file above to see some examples at work.  Read the [python docs](https://docs.python.org/3.7/library/stdtypes.html#string-methods) for a full list of string methods available for use.
 
 #### Escape Sequences
 
@@ -29,3 +29,6 @@ There are special characters that you can place inside your strings to have acce
 |   \t    	| ASCII Horizontal Tab (TAB) 	  |
 
 See the ```stringManipulation.py``` file above for some example uses of escape sequences.
+
+#### String Constants
+There are many useful string constants that can be used to look for specific type of characters in a string.  See the [string library](https://docs.python.org/3.7/library/string.html#string-constants) for a list of all the string constants.
