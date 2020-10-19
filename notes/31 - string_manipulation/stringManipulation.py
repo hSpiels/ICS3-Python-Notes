@@ -2,9 +2,9 @@
 # Name:        String Manipulation (stringManipulation.py)
 # Purpose:     To provide examples of manipulating strings in Python
 #
-# Author:      Mr. Seidel
+# Author:      Mr. Brooks, Mr. Seidel
 # Created:     30-Nov-2018
-# Updated:     30-Nov-2018
+# Updated:     10-Oct-2020
 #-----------------------------------------------------------------------------
 
 fruit = 'apple'
@@ -90,3 +90,30 @@ print("hi".rjust(5, '*'))  # Assumes 5 spaces for justification.  It will fill i
 print("lo".ljust(5, '*'))  # Assumes 5 spaces for justification.  It will fill in left  blanks with *s if your word doesn't fill the 5 spaces.
 print("wow".center(5, '*')) # Assumes 5 spaces for justification.  It will fill in surrounding blanks with *s if your word doesn't fill the 5 spaces.
 print("hello!".center(5, '*')) # If the word is larger than the justification space, then there are no filler characters
+
+
+#print multiple new lines in a single print statement
+print('\r\n \r\n \r\n')
+
+#print oringial quote
+print(quote)
+
+#Remove/replace a single character from a string
+print(quote.replace('I',''))
+
+#Remove many characters from a string (all punctuation in this case)
+import string
+newQuote = quote
+for char in string.punctuation:
+    newQuote = newQuote.replace(char,'')
+
+print (newQuote)
+
+
+print(fruit)
+#Choose which letter to replace by index
+index = 3
+#Choose which letter to replace
+letter = 'z'
+#Slice off the front and back and insert the letter in the middle
+print( fruit[:index] + letter + fruit[index + 1:] )
