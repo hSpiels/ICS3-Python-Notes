@@ -1,3 +1,11 @@
+#-----------------------------------------------------------------------------
+# Name:        Time Example (time_ex.py)
+# Purpose:     To provide examples of how to use the time library.
+#
+# Author:      Mr. Brooks
+# Created:     26-Oct-2021
+# Updated:     27-Oct-2021
+#-----------------------------------------------------------------------------
 import time
 
 endCount = 5   #number of times to count

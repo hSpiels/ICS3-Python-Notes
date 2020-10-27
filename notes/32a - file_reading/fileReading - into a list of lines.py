@@ -4,10 +4,10 @@
 #              Example from http://openbookproject.net/thinkcs/python/english3e/files.html
 #
 # Author:      Mr. Brooks
-# Created:     21-Oct-2021
-# Updated:     21-Oct-2021
+# Created:     21-Oct-2020
+# Updated:     21-Oct-2020
 #-----------------------------------------------------------------------------
-
+#
 f = open("fruit.txt", "r") # Open the file
 fileList = f.readlines()         # Read the file into a list
 f.close()                  # Close the file
