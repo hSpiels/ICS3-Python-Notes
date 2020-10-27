@@ -19,7 +19,7 @@ while True:               #Create a never-ending loop
     print(counter, end='... ')
     time.sleep(delayTime) #pauses the execution of the ENTIRE PROGRAM
     #Due to it's blocking method using time.sleep isn't always optimal if you want to do anything else at the same time
-    time.time()
+    print(time.time())
     
     
 #Method 2 - Storing a time.time() value
@@ -41,4 +41,9 @@ while True:               #Create a never-ending loop
     
     #Almost the exact same functionality EXCEPT this method is non-blocking
     #print(time.time())
+
+
+#Method 3,4,5 etc
+# https://pygame-zero.readthedocs.io/en/stable/builtins.html#clock
+# https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-decorators
 
