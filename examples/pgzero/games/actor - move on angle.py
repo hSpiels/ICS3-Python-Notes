@@ -12,6 +12,7 @@ HEIGHT = 200
 
 #Create the actor object
 knight = Actor('knight_m_run_anim_f0')
+knight2 = Actor('knight_m_run_anim_f0',(50,50))
 #Give the actor a place on the screen to be
 knight.pos = (100, 100)
 
@@ -50,10 +51,18 @@ def on_key_up(key):
 def update():
     global knight
     
+    if knight2.colliderect(knight):
+        print('ouch!', knight2.angle_to(knight))
+        newAngle = knight2.angle_to(knight) +90
+        knight.xDirection = math.cos(math.radians(newAngle))
+        knight.yDirection = -math.sin(math.radians(newAngle))
+        
+    
     if knight.move:
-        knight.x += 1  #knight.speed
-        #knight.x += knight.speed*knight.xDirection #Change the x position by a small amount to move it.
-        #knight.y += knight.speed*knight.yDirection
+#         knight.x += 1  #knight.speed
+#         knight.y += 1  #knight.speed
+        knight.x += knight.speed*knight.xDirection #Change the x position by a small amount to move it.
+        knight.y += knight.speed*knight.yDirection
 
 
 def draw():
@@ -62,3 +71,4 @@ def draw():
     screen.fill((255, 255, 255))
     #Draw the knight
     knight.draw()
+    knight2.draw()
