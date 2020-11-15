@@ -29,6 +29,8 @@ def update():
     if gameState == 'initializeStartScreen':
         music.play('handel_mp3')    #Play the song over and over
         gameState = 'startScreen'
+    if gameState == 'StartScreen':
+        pass
     elif gameState == 'initializeGameScreen':
         music.play_once('birthday') #https://freemusicarchive.org/music/Monk_Turner__Fascinoma/The_New_Birthday_Song_Contest/Its_Your_Birthday_1839
         gameState = 'gameScreen'
