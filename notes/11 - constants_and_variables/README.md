@@ -19,18 +19,20 @@ print(str(5 + 10)) # example 1
 print('The value of x is: ' + str(5.5))  # example 2
 ```
 
+
 ### Variables and printing
 
 Variables are used to temporarily store information, and can be manipulated in multiple ways.  Variables should be named so that it is easy to tell what the value held by the variable is easily identifiable.
 
 Variables can be of different types such as:
-* integers
-* floats
-* characters 
-* strings
-* Boolean values
+* integers   - Numbers with no decimal component
+* floats     - Numbers WITH a decimal part (even if it's .0)
+* characters - A single key on your keyboard =)
+* strings    - A bunch of characters linked together
+* Boolean values - True or False!
 * and more!
 
+#### Method 1 - Using str()
 ```python
 integerOne = 15
 integerTwo = 22
@@ -41,6 +43,19 @@ print(greeting)
 ```
 
 When printing out variables, you will want to wrap the text with a ```str()``` function if you know that the values might be numeric.  If you know they are strings you can print out the information directly to the ```print()``` function.
+
+#### Method 2 - Using f Strings
+```python
+integerOne = 15
+integerTwo = 22
+print(f'The difference is: {integerOne - integerTwo}')
+
+name = 'Mr. Brooks'
+print(f'Hello {name}, how are you today?')
+```
+When you want to print out text and variables together, f strings are very useful.  Any variable or operation wrapped in `{}` will be converted into a string version of it's value automatically.
+
+
 
 ### Checking the type of a variable
 
