@@ -1,6 +1,6 @@
 # Notes (Lists)
 
-A list is a single mutable variable that holds more than one piece of information.  Up until this point, each variable that you created held a unique **single** piece of information.
+A list is a single *mutable* variable that holds more than one piece of information.  Up until this point, each variable that you created held a unique **single** piece of information.
 
 Lists can hold any variable type within them and will typically be the same type, making them _homogeneous_ in nature.  This means you will typically deal with list items individually, rather than as a whole list.
 
@@ -95,7 +95,38 @@ letters = list(word)
 print(letters)
 
 # Example Output
->>> ['W', 'h', 'a', 't', ' ', 'd', 'o', '?'] 
+>>> ['W', 'h', 'a', 't', ' ', 'd', 'o', '?']
 
 
 ```
+
+
+## Advanced Concepts
+### Tuples
+There is another data structure in python that is VERY similar to lists called a tuple.  There are a few key differences between lists and Tuples.
+- Lists use square brackets ```[ ]``` and tuples use parentheses ```( )```
+- Lists can change length, tuples are a *fixed* length (ie can't change once created)
+- Lists are mutable (they can be changed, ie insert, pop, append commands) whereas tuples *can not* be changed once created
+- List has more functionality than the tuple.
+```python
+#List Syntax
+fruitList = ['apple', 'pear', 'peach', 'banana', 'pineapple']
+print(fruitList)
+
+#Tuple Syntax
+fruitTuple = ('apple', 'pear', 'peach', 'banana', 'pineapple')
+print(fruitTuple)
+('apple', 'pear', 'peach', 'banana', 'pineapple')
+
+#Example Output
+>>> ['apple', 'pear', 'peach', 'banana', 'pineapple']
+>>> ('apple', 'pear', 'peach', 'banana', 'pineapple')
+```
+
+### List Mutability
+All of the variables we have been dealing with so far have been immutable.  Since lists are a mutable data type they behave a bit differently when working with them in functions.  Lists will be passed by MEMORY REFERENCE rather than by value as other variables have done so far.  See the example [list-mutable.py](list-mutable.py) for a demo of how python behaves when assigning lists to a new variable, or passing them through functions.
+
+<!--
+### Lists of lists
+note to be added for future year...?
+-->
