@@ -1,6 +1,6 @@
 
-
-a = 1
+import copy
+a = 3
 b = a  #Integers are immutable, so a new variable b is created that stores the VALUE that is currently stored in A
 b = 2
 print(f' The value stored in a is: {a}')
@@ -9,7 +9,9 @@ print(f' The value stored in b is: {b}')
 
 listA = [1,2,3]
 listB = listA  #Lists are mutable, so a new variable is created that stores the REFERENCE to listA
+listC = copy.deepcopy(listA)
 listB[0] = 9999
+listC[1] = 'CCCC'
 print(f' The value stored in listA is: {listA}')
 print(f' The value stored in listB is: {listB}')
 
