@@ -51,9 +51,9 @@ def convertCToF(temperature):
 	assert isinstance(temperature, (int, float)), 'Expecting an int or float'  # ensure we have a number to work with
 	if temperature < -100 or temperature > 100:
 		return 'Unacceptable input values.'
-	
+
 	fahrenheit = (temperature * 1.8) + 32
-	
+
 	assert isinstance(fahrenheit, float), 'Expecting a float' # ensure that we have a float being returned
 	return fahrenheit
 
@@ -103,9 +103,9 @@ def convertCToF(temperature):
 		raise TypeError('convertCToF expecting an int or float as input')
 	if temperature < -100 or temperature > 100:
 		raise ValueError('Values not within expected range (-100, 100)')
-	
+
 	fahrenheit = (temperature * 1.8) + 32
-	
+
 	if not isinstance(fahrenheit, float):
 		raise Exception('Farhenheit calculation did not return a float value as expected.')
 
@@ -174,7 +174,7 @@ try:
     print(convertCToF("hi"))
     print(convertCToF(200))
 except Exception as e:
-    print('Something went wrong: ' + str(e))
+    print(f'Something went wrong: {e}')
 ```
 
 If you know that something **could** go wrong with a function, you will want to wrap it in a ```try/except``` pair of statements.
@@ -182,4 +182,4 @@ If you know that something **could** go wrong with a function, you will want to 
 * ```except``` will catch any of the errors/exceptions that the ```try``` block attempted to run.  You typically want to include what you are trying to catch as part of the statement.
 * ```as``` will catch the error/exception that ```except``` caught and then convert it into a temporary variable (in this case ```e```) that you can use within the ```except``` block only.
 
-There is another example available above that shows how you can use multiple ```except``` blocks with a single try.  This is useful if you want to do something different depending on the exception that you caught. 
+There is another example available above that shows how you can use multiple ```except``` blocks with a single try.  This is useful if you want to do something different depending on the exception that you caught.
