@@ -2,9 +2,9 @@
 # Name:        Catching Exceptions (try-except.py)
 # Purpose:     To provide examples of how to catch and deal with exceptions
 #
-# Author:      Mr. Seidel
+# Author:      Mr. Seidel, Mr. Brooks
 # Created:     11-Nov-2018
-# Updated:     11-Nov-2018
+# Updated:     01-March-2021
 #-----------------------------------------------------------------------------
 
 def convertCToF(temperature):
@@ -45,7 +45,7 @@ try:
     print(convertCToF("hi"))
     print(convertCToF(200))
 except (TypeError, ValueError) as e:
-    print('Something went wrong: ' + str(e))
+    print(f'Something went wrong: {e}')
 except Exception as e:
-    print('Something went wrong: ' + str(e))
+    print(f'Something ELSE went wrong: {e}')
 

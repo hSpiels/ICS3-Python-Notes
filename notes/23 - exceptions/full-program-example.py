@@ -49,10 +49,10 @@ while True:
         break
     try:
         answer = convertCToF(float(value))
-        print(value + 'C converted into ' + str(answer) + 'F')
+        print(f"{value}'C converted into {answer}'F")
     except (TypeError, ValueError) as e:
         print('That value did not work, please try again')
         continue
     except Exception as e:
-        print('Something went wrong: ' + str(e))
+        print(f'Something went wrong: {e}')
         break
