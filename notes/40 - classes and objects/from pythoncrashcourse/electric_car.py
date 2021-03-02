@@ -37,3 +37,19 @@ class ElectricCar(Car):
         """
         super().__init__(manufacturer, model, year)
         self.battery = Battery()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

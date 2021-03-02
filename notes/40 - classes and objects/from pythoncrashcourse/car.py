@@ -3,13 +3,13 @@
 https://github.com/ehmatthes/pcc/blob/master/chapter_09/car.py'''
 
 class Car():
-    """A simple attempt to represent a car."""
+    """A simple attempt to represent a NEW car."""
 
-    def __init__(self, manufacturer, model, year):
+    def __init__(self, manufacturerIn, modelIn, yearIn):
         """Initialize attributes to describe a car."""
-        self.manufacturer = manufacturer
-        self.model = model
-        self.year = year
+        self.manufacturer = manufacturerIn
+        self.model = modelIn
+        self.year = yearIn
         self.odometer_reading = 0
         
     def get_descriptive_name(self):
