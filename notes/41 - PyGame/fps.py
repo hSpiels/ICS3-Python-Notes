@@ -2,9 +2,9 @@
 import pygame
  
 pygame.init()
-screen = pygame.display.set_mode((400,400))
+mainSurface = pygame.display.set_mode((400,400))
 clock = pygame.time.Clock()
-font = pygame.font.SysFont("Arial", 18)
+font = pygame.font.SysFont("Arial", 26)
  
  
 def update_fps():
@@ -15,12 +15,17 @@ def update_fps():
  
 loop = 1
 while loop:
-	screen.fill((0, 0, 0))
-	screen.blit(update_fps(), (10,0))
+
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			loop = 0
+			
+			
+	mainSurface.fill((0, 0, 0))  #Wipe the screen
+	
+	mainSurface.blit(update_fps(), (10,0))  #Draw the returned rendered text on the surface
 	print(clock.tick(60))  #Note - clock.tick returns the number of seconds since it was last called!
-	pygame.display.update()
+	
+	pygame.display.flip()
  
 pygame.quit()

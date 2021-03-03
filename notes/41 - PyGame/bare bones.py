@@ -9,7 +9,6 @@ def main():
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
 
     # Set up some data to describe a small circle and its color
-    
     circleColor = (255, 0, 0)        # A color is a mix of (Red, Green, Blue)
 
     while True:

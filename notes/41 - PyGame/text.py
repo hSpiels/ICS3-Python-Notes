@@ -2,7 +2,7 @@
 import pygame
  
 pygame.init()
-screen = pygame.display.set_mode((400,400))
+mainSurface = pygame.display.set_mode((400,400))
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 26)
  
@@ -18,11 +18,11 @@ while loop:
 		if event.type == pygame.QUIT:
 			loop = 0
 			
-	screen.fill((0, 0, 0))
+	mainSurface.fill((0, 100, 0))
 	
 	words = "Hello Everyone!"
 	renderedText = font.render(words, 1, pygame.Color("coral"))
-	screen.blit(renderedText, (10,0))
+	mainSurface.blit(renderedText, (10,0))
 
 			
 	
