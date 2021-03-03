@@ -3,14 +3,9 @@ import pygame
  
 pygame.init()
 mainSurface = pygame.display.set_mode((400,400))
-clock = pygame.time.Clock()
-font = pygame.font.SysFont("Arial", 26)
- 
- 
-def update_fps():
 
-	return fps_text
- 
+font = pygame.font.SysFont("Arial", 26)
+
  
 loop = 1
 while loop:
