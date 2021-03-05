@@ -7,12 +7,12 @@ class Character():
     
     def __init__(self, imageIn, posIn, imageRectIn):
         """ Create and initialize a wizard at this location on the board """
-        self.image = imageIn
-        self.imageRect = imageRectIn
-        self.pos = posIn
+        self.image = imageIn #The entire image file
+        self.imageRect = imageRectIn #The current part of image to display
+        self.pos = posIn #The x and y position of the character
         
         #These are needed for the image animation
-        self.origImageRect = copy.copy(self.imageRect)
+        self.origImageRect = copy.deepcopy(self.imageRect)
         self.patchNumber = 0; #Start at the initial patch
         self.numPatches = 4;  #Only use 4 patches
         self.frameCount = 0;  #Start at intial frame

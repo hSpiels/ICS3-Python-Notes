@@ -32,8 +32,8 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    wizardImage = pygame.image.load("images//frames//wizzard_f_idle_anim_f1.png")
-    spriteSheet = pygame.image.load("images//0x72_DungeonTilesetII_v1.3.png")
+    wizardImage = pygame.image.load("images//dungeon//frames//wizzard_f_idle_anim_f1.png")
+    spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
 
  
  

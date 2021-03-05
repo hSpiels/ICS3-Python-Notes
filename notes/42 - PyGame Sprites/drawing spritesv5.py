@@ -73,6 +73,7 @@ def main():
 #Instead of just having a list for my circles, I will have a list for ALL of my sprites
     allSprites = []
     for i in range(1):
+#       allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [124,0,24,35]) )
         allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [248,0,48,70]) )
 
     while True:
