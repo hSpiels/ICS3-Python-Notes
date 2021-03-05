@@ -22,12 +22,20 @@ class Character():
         self.animationFrameRate = 10;
         
         #Now let's control the character
-        self.canMove = False
+        self.canMove = True
+        self.direction = True
 
     def draw(self, surfaceIn):
         #surfaceIn.blit(self.image, self.pos)
         #Kinda fun to have EVERY Image, but let's just get the patch we need
-        surfaceIn.blit(self.image, self.pos,  self.imageRect)  #Positions found using msPaint
+        tempSurface = pygame.Surface( (self.imageRect[2], self.imageRect[2]) )
+        tempSurface.set_colorkey((0,0,0))
+        tempSurface.blit(self.image, (0,0),  self.imageRect)
+        
+        if not self.direction:
+            tempSurface = pygame.transform.flip(tempSurface,True,False)
+        
+        surfaceIn.blit(tempSurface, self.pos)  #Positions found using msPaint
 
     def updateImageRect(self):
         #update the imageRect to show the next image
@@ -47,7 +55,10 @@ class Character():
             if (self.frameCount % self.animationFrameRate == 0):
                 self.updateImageRect()
             
-            self.move(0.5,0)
+            if self.direction:
+                self.move(0.5,0)
+            else:
+                self.move(-0.5,0)
         
     def move(self, xIn=0, yIn=0):
         self.pos[0] += xIn
@@ -55,6 +66,9 @@ class Character():
     
     def toggleMovement(self):
         self.canMove = not self.canMove
+    
+    def toggleDirection(self):
+        self.direction = not self.direction
         
     
     
@@ -71,7 +85,7 @@ def main():
     wizardImage = pygame.image.load("images//dungeon//frames//wizzard_f_idle_anim_f1.png")
     #spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
     spriteSheet = pygame.image.load("images//dino//sheets//doux.png")
-    spriteSheet = pygame.image.load("images//Skeleton Walk.png")
+    #spriteSheet = pygame.image.load("images//Skeleton Walk.png")
     spriteSheet = pygame.transform.scale2x(spriteSheet)
     
 
@@ -84,8 +98,8 @@ def main():
 #Instead of just having a list for my circles, I will have a list for ALL of my sprites
     allSprites = []
     for i in range(10):
-        #allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [248,0,48,70]) )
-        allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [0,0,44,64]) )
+        allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [248,0,48,70]) )
+        #allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [0,0,44,64]) )
 
 
     while True:
@@ -94,7 +108,8 @@ def main():
             break                   #   ... leave game loop
         elif ev.type == pygame.MOUSEBUTTONDOWN:
             for i in range(len(allSprites)):
-                allSprites[i].toggleMovement()
+                #allSprites[i].toggleMovement()
+                allSprites[i].toggleDirection()
         
         #
         # Update your game objects and data structures here...
