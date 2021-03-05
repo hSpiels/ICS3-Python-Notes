@@ -82,10 +82,10 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    wizardImage = pygame.image.load("images//dungeon//frames//wizzard_f_idle_anim_f1.png")
+    wizardImage = pygame.image.load("images/dungeon/frames/wizzard_f_idle_anim_f1.png")
     #spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
-    spriteSheet = pygame.image.load("images//dino//sheets//doux.png")
-    #spriteSheet = pygame.image.load("images//Skeleton Walk.png")
+    spriteSheet = pygame.image.load("images/dino/sheets/doux.png")
+    
     spriteSheet = pygame.transform.scale2x(spriteSheet)
     
 
@@ -99,7 +99,6 @@ def main():
     allSprites = []
     for i in range(10):
         allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [248,0,48,70]) )
-        #allSprites.append( Character( spriteSheet, [0,random.randrange(surfaceSize)], [0,0,44,64]) )
 
 
     while True:
