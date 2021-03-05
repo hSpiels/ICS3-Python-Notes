@@ -15,30 +15,7 @@ class Ball():
         self.pos[0] += xIn
         self.pos[1] += yIn
         
-#         #Another way to do it
-#         self.pos = ( self.pos[0] + xIn, self.pos[1].yIn)
-        pass
-    
-    def setPos(self, xIn=0, yIn=0):
-        #TODO Set the position of the ball to xIn and yIn
-        pass
-        
-    def distFromPoint(self, xIn, yIn):
-        #https://www.khanacademy.org/math/geometry/hs-geo-analytic-geometry/hs-geo-distance-and-midpoints/v/distance-formula#:~:text=Learn%20how%20to%20find%20the,distance%20between%20any%20two%20points.
-        #TODO: Given an x and y input return the distance the ball is from this point
-        pass
-    
-    def collidePoint(self, xIn, yIn):
-        #Challenge!
-        #TODO check to see if the point is inside the circle.  If so return true, otherwise false.
-        pass
-    
-    def collideXXXX(self):
-        #Even more challenge
-        #TODO Add another collison check for a differnt object type (another Ball, a rect, etc.)
-        pass
 
- #   def bounce(self):
    
 class Character():
     
@@ -64,17 +41,23 @@ def main():
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
     surfaceSize = 480   # Desired physical surface size, in pixels.
-
+    
     clock = pygame.time.Clock()  #Force frame rate to be slower
 
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
+    
+    #Load Game Resources  ##1
+    spriteSheet = pygame.image.load("images//0x72_DungeonTilesetII_v1.3.png")
+    
+    #Load a knight
+    knight = Character(spriteSheet,[200,200])
 
     # Create the ball object using it's position, size and color
     circle = Ball([50,100], 30, (255, 0, 0))        # A color is a mix of (Red, Green, Blue)
     
     circles = []
-    for i in range(5): #Add 5 balls to the list of circles
+    for i in range(5):
         circles.append(Ball([random.randrange(surfaceSize),random.randrange(surfaceSize)], 30, (0, 0, 0)) )
 
     while True:
