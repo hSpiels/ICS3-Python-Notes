@@ -53,6 +53,9 @@ class Button():
         self.value = not self.value
         print(f"The button is now {self.value}")
         
+    def getValue(self):
+        return self.value
+        
     
  
     
@@ -85,6 +88,10 @@ def main():
 
         greenButton.update()
         greenButton.draw(mainSurface)
+        
+        if greenButton.getValue():
+            pygame.draw.circle(mainSurface, (255,0,0), (200,200), 50)
+
         
         # Now the surface is ready, tell pygame to display it!
         pygame.display.flip()
