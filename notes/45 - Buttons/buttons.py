@@ -18,7 +18,7 @@ class Button():
         
         
     def draw(self, surfaceIn):
-        pygame.draw.rect(surfaceIn, self.displayColor, self.rect, border_radius =3)
+        pygame.draw.rect(surfaceIn, self.displayColor, self.rect, border_radius =20)
         
     def update(self):
         if self.collidePoint(pygame.mouse.get_pos()):
@@ -70,7 +70,8 @@ def main():
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
 
     # Create the ball object using it's position, size and color
-    greenButton = Button( [50,50,100,25], pygame.Color(255,0,0))
+    greenButton = Button( [50,50,100,25], pygame.Color(0,255,0))
+    redButton = Button( [50,100,100,25], pygame.Color(255,0,0))
     
     while True:
         ev = pygame.event.poll()    # Look for any event
@@ -88,6 +89,8 @@ def main():
 
         greenButton.update()
         greenButton.draw(mainSurface)
+        redButton.update()
+        redButton.draw(mainSurface)
         
         if greenButton.getValue():
             pygame.draw.circle(mainSurface, (255,0,0), (200,200), 50)
