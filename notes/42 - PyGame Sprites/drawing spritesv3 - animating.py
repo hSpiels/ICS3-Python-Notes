@@ -1,6 +1,7 @@
 import pygame
 import random
 import copy
+#TODO: Re-write this so it isn't using toggles, that is really throwing people off, use setters and getters instead
 
 #Wizard Rect: [130,165,16,28]
 class Character():
