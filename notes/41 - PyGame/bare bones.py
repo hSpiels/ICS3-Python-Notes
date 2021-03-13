@@ -4,6 +4,9 @@ def main():
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
     surfaceSize = 480   # Desired physical surface size, in pixels.
+    
+    clock = pygame.time.Clock()  #Force frame rate to be slower
+
 
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
@@ -28,6 +31,9 @@ def main():
 
         # Now the surface is ready, tell pygame to display it!
         pygame.display.flip()
+        
+        clock.tick(60) #Force frame rate to be slower
+
 
     pygame.quit()     # Once we leave the loop, close the window.
 
