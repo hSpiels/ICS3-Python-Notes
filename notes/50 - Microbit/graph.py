@@ -1,6 +1,11 @@
-import pygame
-import serial
-import serial.tools.list_ports as list_ports
+#-----------------------------------------------------------------------------
+# Name:        Dictionaries (dictionaries_ex1.py)
+# Purpose:     This program detects reads the microbit data and displays the gyro results
+#
+# Author:      Mr. Brooks-Prenger
+# Created:     10-March-2021
+# Updated:     13-March-2021
+#-----------------------------------------------------------------------------
 '''Code to be run on the microbit:
 from microbit import *
 import speech
@@ -17,16 +22,38 @@ while True:
     #display.show(Image.NO)
     #sleep(DELAY_VALUE)
  '''
+#-----------------------------------------------------------------------------
 
-#Required information about the microbit so it can be found
-PID_MICROBIT = 516
-VID_MICROBIT = 3368
-TIMEOUT = 0.1
 
-def findComPort(pid, vid, baud):
-    ''' return a serial port '''
+import pygame
+import serial
+import serial.tools.list_ports as list_ports
+
+def findMicrobitComPort(pid=516, vid=3368, baud=115200):
+    '''
+    This function finds a device connected to usb by it's PID and VID and returns a serial connection
+
+    Parameters
+    ----------
+    pid - Product id of device to search for
+    vid - Vendor id of device to search for
+    baud - Baud rate to open the serial connection at
+
+    Returns
+    -------
+    Serial - If a device is found a serial connection for the device is configured and returned
+
+    '''
+    #Required information about the microbit so it can be found
+    #PID_MICROBIT = 516
+    #VID_MICROBIT = 3368
+    TIMEOUT = 0.1
+    
+    #Create the serial object
     serPort = serial.Serial(timeout=TIMEOUT)
     serPort.baudrate = baud
+    
+    #Search for device on open ports and return connection if found
     ports = list(list_ports.comports())
     print('scanning ports')
     for p in ports:
@@ -40,9 +67,25 @@ def findComPort(pid, vid, baud):
                 p.pid, p.vid, p.device))
             serPort.port = str(p.device)
             return serPort
+    
+    #If nothing found then return None
     return None
 
 def normalizeGyroValue(gyroString, startingY, displayRect):
+    '''
+    This function normalizes the gyro values from ~ +/- 1050 to  ~ +/- 200 to fit on screen
+
+    Parameters
+    ----------
+    gyroString - The gyro value as a string
+    startingY - The initial y value to place the rect at
+    displayRect - The rect value to be modified to create the bar
+
+    Returns
+    -------
+    None - Values required are changed in displayRec as passed by value
+
+    '''
     
     gyroValue = int(gyroString)
     
@@ -62,7 +105,6 @@ def normalizeGyroValue(gyroString, startingY, displayRect):
 
 
 def main():
-    
     
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
@@ -95,7 +137,7 @@ def main():
             
         elif programState == "set up microbit":
             print('looking for microbit')
-            microbit = findComPort(PID_MICROBIT, VID_MICROBIT, 115200)
+            microbit = findMicrobitComPort()
             if not microbit:
                 print('microbit not found')
                 continue
@@ -124,24 +166,19 @@ def main():
                 
             mainSurface.fill((0, 200, 255))
             
+            #Draw the bars on the screen
             pygame.draw.rect(mainSurface, (255,0,0), gyroXRectBase)
             pygame.draw.rect(mainSurface, (0,255,0), gyroYRectBase)
             pygame.draw.rect(mainSurface, (0,0,255), gyroZRectBase)
             
-            
-            #TODO Draw the bar graph
-            
-        
-            
-            
-            
+
 
         pygame.display.flip() #Update the display
         clock.tick(60) #Force frame rate to be slower
 
     #-----------------END of main while True loop!------------------------------
-        
-    microbit.close()  #Close the microbit serial connection
+    if microbit != None:
+        microbit.close()  #Close the microbit serial connection
     pygame.quit()     # Once we leave the loop, close the window.
     
 
