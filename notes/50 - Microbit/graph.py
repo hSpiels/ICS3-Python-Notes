@@ -150,11 +150,13 @@ def main():
         elif programState == "display":
             #Grab the data from the microbit
             line = microbit.readline().decode('utf-8')
+            #print(line)
             if line:  # If it isn't a blank line
                 #Update your data
                 #print(line)
                 data = line.split()
                 #print(data)
+                var1, var2 = [1,2]
                 *label, gyroX, gyroY, gyroZ = data
                 print(f' ({gyroX}, {gyroY}, {gyroZ})')
 
@@ -162,7 +164,7 @@ def main():
                 normalizeGyroValue(gyroY, startingY, gyroYRectBase)
                 normalizeGyroValue(gyroZ, startingY, gyroZRectBase)
                 
-                print(gyroXRectBase)
+                #print(gyroXRectBase)
                 
             mainSurface.fill((0, 200, 255))
             
