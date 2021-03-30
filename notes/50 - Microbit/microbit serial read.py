@@ -68,9 +68,23 @@ def main():
     microbit.open()
 
     while True:
-        line = microbit.readline().decode('utf-8')
-        if line:  # If it isn't a blank line
-            print(line)
+
+        #Non-blocking version of serial read
+        if (microbit.inWaiting()>0):
+        
+            #data = microbit.read(microbit.inWaiting()).decode('utf-8') #read the bytes and convert from binary array to utf-8
+            data = microbit.readlines()  #Read lines into a list, one line per list entry
+                  
+            for i in range(len(data)): #Convert each entry in list from binary to a readable text format
+                data[i] = data[i].decode('utf-8').strip()
+        
+        
+            print(data)
+
+#         #Blocking version of serial read
+#         line = microbit.readline().decode('utf-8')
+#         if line:  # If it isn't a blank line
+#             print(line)
     
     microbit.close()
     
