@@ -89,7 +89,7 @@ def main():
 
 
         #EXAMPLE CODE - This method is independant from the frame rate the program is running at
-        #print(pygame.time.get_ticks())
+        print(pygame.time.get_ticks())
         
         if pygame.time.get_ticks() >= futureTime:  #ie.  Once the current time is bigger than our future time value
             circles.append(Ball([0,random.randrange(surfaceSize)], 30, (0, 0, 0)) ) #Add  a new ball
