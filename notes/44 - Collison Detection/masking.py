@@ -3,7 +3,7 @@ import pygame
 def main():
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
-    surfaceSize = 800   # Desired physical surface size, in pixels.
+    surfaceSize = 1000   # Desired physical surface size, in pixels.
 
     clock = pygame.time.Clock()  #Force frame rate to be slower
 
