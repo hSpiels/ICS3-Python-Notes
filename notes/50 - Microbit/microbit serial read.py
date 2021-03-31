@@ -80,31 +80,22 @@ def main():
     
     print('opening and monitoring microbit port')
     microbit.open()
+    
+    dataCache = ''
 
     while True:
+#         #Method 1
+#         #Blocking version of serial read
+#         #Slows down your entire program as it waits until there is a full line to be read before going
+#         line = microbit.readline().decode('utf-8')
+#         if line:  # If it isn't a blank line
+#             print(line)
 
 
-        #Method 2 - Still slightly blocking, but better.
-        #WARNING - You need to have at least a 200ms delay in your microbit code or this method gets buggy
-        if (microbit.inWaiting()>0):
-           
-            data = microbit.readlines()  #Read lines into a list, one line per list entry
-                  
-            for i in range(len(data)): #Convert each entry in list from binary to a readable text format
-                data[i] = data[i].decode('utf-8').strip()
-        
-        
-            print(data[-1])
-
-
-
-#         #Non-blocking version of serial read
+#         #Method 2 - Still slightly blocking, but better.
+#         #WARNING - You need to have at least a 200ms delay in your microbit code or this method gets buggy
 #         if (microbit.inWaiting()>0):
-#             #Method 2
-#             data = microbit.read(microbit.inWaiting()).decode('utf-8') #read the bytes and convert from binary array to utf-8
-#             print(data)
-#             
-
+#            
 #             data = microbit.readlines()  #Read lines into a list, one line per list entry
 #                   
 #             for i in range(len(data)): #Convert each entry in list from binary to a readable text format
@@ -112,13 +103,34 @@ def main():
 #         
 #         
 #             print(data[-1])
-        #time.sleep(5)
 
-#         #Method 1
-#         #Blocking version of serial read
-#         line = microbit.readline().decode('utf-8')
-#         if line:  # If it isn't a blank line
-#             print(line)
+
+#         #Method 3
+#         #Proper Non-blocking version of serial read
+#         #This method breaks up your code into tiny chunks/partial messages quite often.
+#         #But it works with much shorter message durations.
+#         if (microbit.inWaiting()>0):
+#             #Method 2
+#             data = microbit.read(microbit.inWaiting()).decode('utf-8') #read the bytes and convert from binary array to utf-8
+#             print(data)
+            
+
+        #Method 4
+        #Proper Non-blocking version of serial read with a cache to stop partial messages
+        #If multiple lines of data are received between cycles only the most recent data is kept
+        #It works with any message duration, but it's still recommended to have at least a 1ms delay in the microbit code
+        if (microbit.inWaiting()>0):
+            dataCache += microbit.read(microbit.inWaiting()).decode('utf-8')#.decode('utf-8') #read the bytes and convert from binary array to utf-8
+            
+            isFullLine = dataCache.count('\r\n')
+
+            if isFullLine > 1:
+                data = dataCache.rpartition('\r\n')#.strip() #split the data into 3 parts [useful, /r/n, cut off data]
+                dataCache = data[-1]                         #Take the cut off data and save it for later
+                data = data[0].rpartition('\r\n')[-1]        #Split the last complete chunk of data off and save (keeps only newest data sent by microbit)
+                
+                print(data)
+
     
     microbit.close()
     
