@@ -7,9 +7,23 @@
 # Created:     10-March-2021
 # Updated:     13-March-2021
 #-----------------------------------------------------------------------------
-
+# Add your Python code here. E.g.
+# from microbit import *
+# import utime
+# 
+# while True:
+#     
+#     display.show(Image.HEART)
+#     print('heart ', utime.ticks_ms())
+#     utime.sleep_ms(100)
+# 
+# 
+# 
+# 
+# #
 import serial
 import serial.tools.list_ports as list_ports
+import time
 
 
 def findMicrobitComPort(pid=516, vid=3368, baud=115200):
@@ -69,18 +83,38 @@ def main():
 
     while True:
 
-        #Non-blocking version of serial read
+
+        #Method 2 - Still slightly blocking, but better.
+        #WARNING - You need to have at least a 200ms delay in your microbit code or this method gets buggy
         if (microbit.inWaiting()>0):
-        
-            #data = microbit.read(microbit.inWaiting()).decode('utf-8') #read the bytes and convert from binary array to utf-8
+           
             data = microbit.readlines()  #Read lines into a list, one line per list entry
                   
             for i in range(len(data)): #Convert each entry in list from binary to a readable text format
                 data[i] = data[i].decode('utf-8').strip()
         
         
-            print(data)
+            print(data[-1])
 
+
+
+#         #Non-blocking version of serial read
+#         if (microbit.inWaiting()>0):
+#             #Method 2
+#             data = microbit.read(microbit.inWaiting()).decode('utf-8') #read the bytes and convert from binary array to utf-8
+#             print(data)
+#             
+
+#             data = microbit.readlines()  #Read lines into a list, one line per list entry
+#                   
+#             for i in range(len(data)): #Convert each entry in list from binary to a readable text format
+#                 data[i] = data[i].decode('utf-8').strip()
+#         
+#         
+#             print(data[-1])
+        #time.sleep(5)
+
+#         #Method 1
 #         #Blocking version of serial read
 #         line = microbit.readline().decode('utf-8')
 #         if line:  # If it isn't a blank line
