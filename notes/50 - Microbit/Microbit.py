@@ -4,7 +4,7 @@
 #
 # Author:      Mr. Brooks-Prenger
 # Created:     31-March-2021
-# Updated:     31-March-2021
+# Updated:     7-April-2021
 #-----------------------------------------------------------------------------
 
 import serial
@@ -13,12 +13,13 @@ import time
 
 class Microbit():
     
-    def __init__(self):
+    def __init__(self, excludePorts=[]):
         self.isLoaded = False
         self.dataCache = ''
         
         print('looking for microbit')
-        self.microbit = self.findMicrobitComPort()
+
+        self.microbit = self.findMicrobitComPort(excludePorts=excludePorts)
         print(self.microbit)
         if not self.microbit:
             print('microbit not found')
@@ -77,10 +78,12 @@ class Microbit():
     def closeConnection(self):
         self.microbit.close()
 
+    def getPort(self):
+        return self.microbit.port
 
-    def findMicrobitComPort(self, pid=516, vid=3368, baud=115200):
+    def findMicrobitComPort(self, pid=516, vid=3368, baud=115200, excludePorts=None):
         '''
-        This function finds a device connected to usb by it's PID and VID and returns a serial connection
+        This function finds a device connected to usb by it's PID and VID and returns a single serial connection
         Adapted From - https://stackoverflow.com/questions/58043143/how-to-set-up-serial-communication-with-microbit-using-pyserial
 
         Parameters
@@ -103,19 +106,29 @@ class Microbit():
         serPort = serial.Serial(timeout=TIMEOUT)
         serPort.baudrate = baud
         
+        #Print out all ports that will not be used
+        print(f"The following ports are excluded ports: {excludePorts}")
+        
         #Search for device on open ports and return connection if found
         ports = list(list_ports.comports())
         
+        #print(ports)
         print('scanning ports')
         for p in ports:
-            print('port: {}'.format(p))
-            try:
-                print('pid: {} vid: {}'.format(p.pid, p.vid))
-            except AttributeError:
+            #Check for excluded port and skip if found
+            if p.device in excludePorts:
+                print(f'{p.device} is excluded, skip it')
                 continue
+            
+            print('Port found: {}'.format(p))
+            try:
+                print('Port information - pid: {} vid: {}'.format(p.pid, p.vid))
+            except AttributeError:
+                print('Error - no pid or vid found')
+                continue
+            
             if (p.pid == pid) and (p.vid == vid):
-                print('found target device pid: {} vid: {} port: {}'.format(
-                    p.pid, p.vid, p.device))
+                print(f'Found a microbit pid: {p.pid} vid: {p.vid} port: {p.device}')
                 serPort.port = str(p.device)
                 return serPort
         
