@@ -1,3 +1,14 @@
+#-----------------------------------------------------------------------------
+# Name:        Rect Rect Collision Example
+# Purpose:     To demonstrate how rect-rect collision works
+#
+# Author:      Ms. Bokhari, Mr. Brooks
+# Created:     21-Feb-2021
+# Updated:     21-Sept-2021
+
+#TODO: Need to properly comment this example
+#-----------------------------------------------------------------------------
+
 from pygame import *
 
 init()
