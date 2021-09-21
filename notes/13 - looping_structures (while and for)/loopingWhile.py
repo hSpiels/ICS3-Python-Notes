@@ -3,24 +3,24 @@
 # Purpose:     To provide information about how while loops work as a looping
 #			   structure in Python
 #
-# Author:      Mr. Seidel
+# Author:      Mr. Seidel, Mr. Brooks
 # Created:     17-Aug-2018
-# Updated:     22-Aug-2018
+# Updated:     21-Sept-2021
 #-----------------------------------------------------------------------------
 
 # Using a while loop to count up
 count = 1
 while count < 10:
-	print(str(x + count))
+	print(f'Counter Value: {count}')
 	count = count + 1		# this can also be written as count += 1
 	
 
 # Using a while loop to count down
 count = 275
 while count > 250:
-	count = count - 1		# this can also be written as z -= 1
+	count = count - 1		# this can also be written as count -= 1
 	if count % 2 == 0:
-		print(str(z) + ": This number is even")
+		print(f"{count}: This number is even")
 
 
 # Creating an infinite loop.  This loop won't stop.
@@ -32,7 +32,7 @@ while count == 1:
 # Using an "else" statement with a while loop
 count = 1
 while count < 10:
-	print(str(2 * count))
+	print(f'2*{count} = {2 * count}')
 	count += 1
 else:
 	print("Done")
@@ -41,18 +41,19 @@ else:
 # Breaking out of a loop early
 count = 1
 while count < 10:
-	if count == 5:
-		break
-	count += 1
+    print(f'Count: {count}')
+    if count == 5:
+        break
+    count += 1
 
 	
 # Using Continue to skip certain values
 count = 1
-while count < 10:	
+while count < 10:
 	count += 1
 	if count % 2 == 0:	# skip EVEN numbers (and ZERO)
 		continue		# immediately jump back to "while count < 10"
-	print(str(count))
+	print(f'Count: {count}')
 	
 # Using pass
 count = 1
@@ -62,4 +63,5 @@ while count < 10:
 		pass
 	elif count == 5:	# Plan something else for when count is 5
 		pass
-	print(str(count))
+	print(f'Count: {count}')
+	
