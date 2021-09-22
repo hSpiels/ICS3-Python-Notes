@@ -10,7 +10,7 @@ This looping structure will continue doing something **while** a condition is ``
 ```python
 count = 1
 while count < 10:
-  print(str(count))
+  print(f'{count}')
   count = count + 1
 ```
 
@@ -41,7 +41,7 @@ The above has some new concepts such as:
 ```python
 # Count up
 for count in range(0, 5, 1):
-  print(str(count))
+  print(f'{count}')
 
 # Output
 # 0
@@ -53,7 +53,7 @@ for count in range(0, 5, 1):
 
 # Count down
 for count in range(5, 0, -1):
-  print(str(count))
+  print(f'{count}')
 
 # Output
 # 5
