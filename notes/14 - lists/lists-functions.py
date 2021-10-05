@@ -26,9 +26,9 @@ print(numbers)
 print()
 
 
-# Removing an element to the end of the list
-del fruit[2]
-del numbers[2]
+# Removing an element from the list
+fruit.pop(2)
+numbers.pop(2)
 
 print('After removing a value from each list')
 print(fruit)
