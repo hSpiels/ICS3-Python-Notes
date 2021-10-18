@@ -31,12 +31,12 @@ def main():
         
         #Drawing a Rotated Rect.
         rectSurface = pygame.Surface( (100,100) ) #Make the new surface
-        rectSurface.fill((255,0,255,0)); #Fill with a background color
-        rectSurface.set_colorkey((255,0,255)) #Set the background color to be transparent
+        rectSurface.fill((255,0,255,0));          #Fill with a background color
+        rectSurface.set_colorkey((255,0,255))     #Set the background color to be transparent
                 
         pygame.draw.rect(rectSurface,(0,255,0), [10,10,20,100]) #Draw a rect on the surface
         rectSurface = pygame.transform.rotate(rectSurface,40)   #Rotate the surface and redraw
-        pygame.Surface.blit(mainSurface,rectSurface, (0,0));  #Draw the rectSurface onto the mainSurface
+        pygame.Surface.blit(mainSurface,rectSurface, (0,0));    #Draw the rectSurface onto the mainSurface
         
         
         pygame.display.flip()
