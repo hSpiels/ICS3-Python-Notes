@@ -14,10 +14,12 @@ while True: #Start an infinite loop
     try:
         value = int(value)   #Convert the value to an int
         
-    except Exception as e:
-        print(f'Something went wrong: {e}') #You should probably add a nicer error message
+    except Exception as err:
+        print(f'Something went wrong: {err}') #You should probably add a nicer error message
        
 
     else:
         #No exception was thrown, so break out of the infinite loop
         break
+    
+print (value)
