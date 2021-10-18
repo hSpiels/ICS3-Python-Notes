@@ -1,4 +1,4 @@
-# Notes (Lists)
+# Notes (Lists and Tuples)
 
 A list is a single *mutable* variable that holds more than one piece of information.  Up until this point, each variable that you created held a unique **single** piece of information.
 
