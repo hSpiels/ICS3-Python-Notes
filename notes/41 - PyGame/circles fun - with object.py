@@ -39,26 +39,7 @@ class Ball():
         pass
 
  #   def bounce(self):
-   
-class Character():
-    
-    def __init__(self, imgIn, posIn):
-        self.image = imgIn
-        self.pos = posIn
-
-    def update(self):
-        return
-
-    def draw(self, target_surface):
-        return
-
-    def handle_click(self):
-        return
-
-    def contains_point(self, pt):
-        # Use code from QueenSprite here
-        return
-    
+  
     
 def main():
     """ Set up the game and run the main game loop """
