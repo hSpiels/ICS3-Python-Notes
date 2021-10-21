@@ -21,10 +21,10 @@ def main():
     lizardPos = [0,150]
     
     #These are needed for the image animation
-    lizardRect = [128,236,16,28]  #Old Values
-    lizardRect = [256,472,32,56]  #New values are doubled since I doubled the scale
+    lizardRect = [176,236,16,28]  #Old Values
+    lizardRect = [352,472,32,56]  #New values are doubled since I doubled the scale
     lizardPatchNumber = 0         #Start at the initial patch
-    lizardNumPatches = 4          #Only use 4 patches
+    lizardNumPatches = 5          #Only use 4 patches
     lizardFrameCount = 0          #Start at intial frame
     lizardFrameRate = 10;         #How often to re-draw the lizard
     
