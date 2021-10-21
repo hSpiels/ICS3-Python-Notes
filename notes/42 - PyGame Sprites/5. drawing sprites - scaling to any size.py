@@ -15,14 +15,16 @@ def main():
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
     spriteSheet = pygame.image.load("images/dungeon/0x72_DungeonTilesetII_v1.3.png")
-    spriteSheet = pygame.transform.scale2x(spriteSheet)
+    #spriteSheet = pygame.transform.scale2x(spriteSheet)
+    scale = 0.5;
+    spriteSheet = pygame.transform.smoothscale(spriteSheet, (scale*spriteSheet.get_width(),scale*spriteSheet.get_height()))
     
     wizardPos = [0,50]
     lizardPos = [0,150]
     
     #These are needed for the image animation
-    lizardRect = [128,236,16,28]  #Old Values
-    lizardRect = [256,472,32,56]  #New values are doubled since I doubled the scale
+    lizardRect = [128*scale,236*scale,16*scale,28*scale]  #Old Values
+    #lizardRect = [256,472,32,56]  #New values are doubled since I doubled the scale
     lizardPatchNumber = 0         #Start at the initial patch
     lizardNumPatches = 4          #Only use 4 patches
     lizardFrameCount = 0          #Start at intial frame

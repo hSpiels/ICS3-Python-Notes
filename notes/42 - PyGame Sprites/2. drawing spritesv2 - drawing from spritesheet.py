@@ -12,7 +12,7 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
+    spriteSheet = pygame.image.load("images/dungeon/0x72_DungeonTilesetII_v1.3.png")
     
     wizardPos = [0,50]
     lizardPos = [0,150]
@@ -34,7 +34,7 @@ def main():
         lizardPos[0] += 0.5   #update the x for the wizard
         
         #Draw the whole sheet
-        #mainSurface.blit(dinoSheetImage, dinoPos)
+        #mainSurface.blit(spriteSheet, lizardPos)
         
         #Kinda fun to have EVERY Image, but let's just get the patches we need
         mainSurface.blit(spriteSheet, wizardPos, [130,165,16,28])  #Positions found using msPaint

@@ -14,7 +14,7 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
+    spriteSheet = pygame.image.load("images/dungeon/0x72_DungeonTilesetII_v1.3.png")
     
     wizardPos = [0,50]
     lizardPos = [0,150]

@@ -8,12 +8,12 @@ def main():
     surfaceSize = 480   # Desired physical surface size, in pixels.
     
     clock = pygame.time.Clock()  #Force frame rate to be slower
-    frameRate = 5                #Slowing down the program
+    frameRate = 10                #Slowing down the program
     
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    spriteSheet = pygame.image.load("images//dungeon//0x72_DungeonTilesetII_v1.3.png")
+    spriteSheet = pygame.image.load("images/dungeon/0x72_DungeonTilesetII_v1.3.png")
     
     wizardPos = [0,50]
     lizardPos = [0,150]
@@ -22,8 +22,8 @@ def main():
     lizardRect = [128,236,16,28]
     lizardPatchNumber = 0        #Start at the initial patch
     lizardNumPatches = 4         #Only use 4 patches
-    lizardFrameCount = 0         #Start at intial frame
-    animationFrameRate = 10
+    #lizardFrameCount = 0         #Start at intial frame
+    #animationFrameRate = 10
     
     
     
