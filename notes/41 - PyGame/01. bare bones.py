@@ -1,6 +1,7 @@
 import pygame
 
 def main():
+    #-----------------------------Setup------------------------------------------------------#
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
     surfaceSize = 480   # Desired physical surface size, in pixels.
@@ -11,16 +12,25 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
 
+    #-----------------------------Program Variable Initialization----------------------------#
     # Set up some data to describe a small circle and its color
     circleColor = (255, 0, 0)        # A color is a mix of (Red, Green, Blue)
 
+
+    #-----------------------------Main Game Loop---------------------------------------------#
     while True:
+        
+        #-----------------------------Event Handling-----------------------------------------#
         ev = pygame.event.poll()    # Look for any event
         if ev.type == pygame.QUIT:  # Window close button clicked?
             break                   #   ... leave game loop
 
+
+        #-----------------------------Game Logic---------------------------------------------#
         # Update your game objects and data structures here...
 
+
+        #-----------------------------Drawing Everything-------------------------------------#
         # We draw everything from scratch on each frame.
         # So first fill everything with the background color
         mainSurface.fill((0, 200, 255))
