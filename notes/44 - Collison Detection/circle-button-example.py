@@ -38,36 +38,31 @@ def main():
     circleSize = 30
     circleColor = (255,0,0)
     
-    # Create the the size, position and color for another circle that follows the mouse
-    mouseCirclePos = pygame.mouse.get_pos()
-    mouseCircleSize = 50
-    mouseCircleColor = (0,0,255)
-    
+    #Create a variable to save the button state
+    buttonOn = False
     
     while True:
         ev = pygame.event.poll()    # Look for any event
         if ev.type == pygame.QUIT:  # Window close button clicked?
             break                   #   ... leave game loop
-
+        if ev.type == pygame.MOUSEBUTTONUP:
+            if distFromPoints(circlePos,mouseCirclePos) < (circleSize):
+                buttonOn = not buttonOn
+                
+                
         # Update your game objects and data structures here...
-        #mouseCirclePos = pygame.mouse.get_pos()
-        
-        if distFromPoints(circlePos,mouseCirclePos) < (circleSize + mouseCircleSize):
-            #A collision happens!
+        mouseCirclePos = pygame.mouse.get_pos()
+            
+        if buttonOn:
             circleColor = (100,0,0)
         else:
-            #no collision happened
-            mouseCirclePos = pygame.mouse.get_pos()
-
             circleColor = (255,0,0)
-  
+        
         # We draw everything from scratch on each frame.
         # So first fill everything with the background color
         mainSurface.fill((0, 200, 255))
 
-        pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize) #Draw Circle
-        pygame.draw.circle(mainSurface, mouseCircleColor, mouseCirclePos, mouseCircleSize) #Draw mouseCircle
-        
+        pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize) #Draw Circle      
 
         # Now the surface is ready, tell pygame to display it!
         pygame.display.flip()

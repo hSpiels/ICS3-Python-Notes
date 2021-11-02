@@ -21,7 +21,6 @@ def distFromPoints(point1, point2):
     
     return distance
   
-
     
 def main():
     """ Set up the game and run the main game loop """
@@ -38,35 +37,29 @@ def main():
     circleSize = 30
     circleColor = (255,0,0)
     
-    # Create the the size, position and color for another circle that follows the mouse
-    mouseCirclePos = pygame.mouse.get_pos()
-    mouseCircleSize = 50
-    mouseCircleColor = (0,0,255)
-    
+
     
     while True:
         ev = pygame.event.poll()    # Look for any event
         if ev.type == pygame.QUIT:  # Window close button clicked?
             break                   #   ... leave game loop
-
-        # Update your game objects and data structures here...
-        #mouseCirclePos = pygame.mouse.get_pos()
         
-        if distFromPoints(circlePos,mouseCirclePos) < (circleSize + mouseCircleSize):
-            #A collision happens!
+           
+        # Update your game objects and data structures here...
+        mouseCirclePos = pygame.mouse.get_pos()
+        
+        
+        if distFromPoints(circlePos,mouseCirclePos) < (circleSize):  #A collision happens!
             circleColor = (100,0,0)
-        else:
-            #no collision happened
-            mouseCirclePos = pygame.mouse.get_pos()
-
-            circleColor = (255,0,0)
-  
+        else:                                                        #no collision happened
+            circleColor = (255,0,0)  
+        
         # We draw everything from scratch on each frame.
         # So first fill everything with the background color
         mainSurface.fill((0, 200, 255))
 
         pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize) #Draw Circle
-        pygame.draw.circle(mainSurface, mouseCircleColor, mouseCirclePos, mouseCircleSize) #Draw mouseCircle
+        #pygame.draw.circle(mainSurface, mouseCircleColor, mouseCirclePos, mouseCircleSize) #Draw mouseCircle
         
 
         # Now the surface is ready, tell pygame to display it!
