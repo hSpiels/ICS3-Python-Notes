@@ -17,7 +17,7 @@ def main():
     
     circleColor = RED        # A color is a mix of (Red, Green, Blue)
     circlePos = [50,50]
-    moveCircle = False #Control whether the circle should move or not
+    moveCircleRight = False #Control whether the circle should move or not
 
     while True:
         ev = pygame.event.poll()    # Look for any event
@@ -25,15 +25,15 @@ def main():
             break                   #   ... leave game loop
         elif ev.type == pygame.KEYDOWN:
             if ev.key == pygame.K_RIGHT:
-                moveCircle = True
+                moveCircleRight = True
         elif ev.type == pygame.KEYUP:
             if ev.key == pygame.K_RIGHT:
-                moveCircle = False
+                moveCircleRight = False
             
   
 
         # Update your game objects and data structures here...
-        if moveCircle:
+        if moveCircleRight:
             circlePos[0] += 0.05
 
         # We draw everything from scratch on each frame.
