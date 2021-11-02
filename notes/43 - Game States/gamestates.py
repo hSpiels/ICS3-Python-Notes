@@ -22,24 +22,35 @@ def main():
             break                   #   ... leave game loop
 
         if gameState == "start":
-            #Check for events needed in this case
+            #Check for events for the start screen
             if ev.type == pygame.MOUSEBUTTONUP:
                 gameState = "initialize"
             
-            #Do what you want for the start screen
+            #Do the logic for the start screen
+                
+            #Draw the stuff for the start screen
             mainSurface.fill((0, 200, 255))
         
         elif gameState == "initialize": #Sometimes it's useful to separate out initialization code into a gamestate
             #That will only run once when called and then change the state to something else.
+            #Check for events
+            
+            #Logic
             counter = 0
             gameState = "game"
             
-        elif gameState == "game":
-            mainSurface.fill((255, 200, 255))
+            #Draw
             
+        elif gameState == "game":
+            #Events
+
+            #Logic
             counter += 1
             if counter > 500:
                 gameState = "start"
+            
+            #Draw
+            mainSurface.fill((255, 200, 255))
             
         
         else:
