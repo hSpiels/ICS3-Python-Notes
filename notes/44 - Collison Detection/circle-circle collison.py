@@ -50,15 +50,13 @@ def main():
             break                   #   ... leave game loop
 
         # Update your game objects and data structures here...
-        #mouseCirclePos = pygame.mouse.get_pos()
+        mouseCirclePos = pygame.mouse.get_pos()
         
         if distFromPoints(circlePos,mouseCirclePos) < (circleSize + mouseCircleSize):
             #A collision happens!
             circleColor = (100,0,0)
         else:
             #no collision happened
-            mouseCirclePos = pygame.mouse.get_pos()
-
             circleColor = (255,0,0)
   
         # We draw everything from scratch on each frame.
