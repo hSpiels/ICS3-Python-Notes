@@ -39,7 +39,7 @@ def main():
     circleColor = (255,0,0)
     
     #Create a variable to save the button state
-    buttonOn = False
+    buttonOn = False  #Default to off
     
     while True:
         ev = pygame.event.poll()    # Look for any event
@@ -62,7 +62,10 @@ def main():
         # So first fill everything with the background color
         mainSurface.fill((0, 200, 255))
 
-        pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize) #Draw Circle      
+        pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize) #Draw Circle
+        
+        if buttonOn:  #If the button is on draw a rectangle
+            pygame.draw.rect(mainSurface, (200,200,200), [300,200,150,200])
 
         # Now the surface is ready, tell pygame to display it!
         pygame.display.flip()
