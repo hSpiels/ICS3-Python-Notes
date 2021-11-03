@@ -1,9 +1,7 @@
 import pygame
-import random
-import math
-   
+  
 def main():
-    #-----------------------------Setup------------------------------------------------------#
+    #-----------------------------Setup------------------------------------------------#
     """ Set up the game and run the main game loop """
     pygame.init()      # Prepare the pygame module for use
     surfaceSize = 480   # Desired physical surface size, in pixels.
@@ -13,7 +11,7 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
 
-    #-----------------------------Program Variable Initialization----------------------------#
+    #-----------------------------Program Variable Initialization----------------------#
 
     # Create the the size, position and color for a circle
     circlePosX  = 200
@@ -27,9 +25,9 @@ def main():
     
     
 
-   #-----------------------------Main Game Loop---------------------------------------------#
+   #-----------------------------Main Game Loop----------------------------------------#
     while True:
-        #-----------------------------Event Handling-----------------------------------------#
+        #-----------------------------Event Handling-----------------------------------#
         ev = pygame.event.poll()    # Look for any event
         if ev.type == pygame.QUIT:  # Window close button clicked?
             break                   #   ... leave game loop
@@ -42,7 +40,7 @@ def main():
                 #Disallow jumping since already in the air
                 jumping = True
  
-        #-----------------------------Game Logic---------------------------------------------#
+        #-----------------------------Game Logic---------------------------------------#
        
         #Move the circle
         circlePosY += circleSpeedY
@@ -63,7 +61,7 @@ def main():
             #Gravity acclerates the movement speed
             circleSpeedY += 1
         
-        #-----------------------------Drawing Everything-------------------------------------#
+        #-----------------------------Drawing Everything-------------------------------#
         # So fill everything with the background color
         mainSurface.fill((0, 200, 255))
       
