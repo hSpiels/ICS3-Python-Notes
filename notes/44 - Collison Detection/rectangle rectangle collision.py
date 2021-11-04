@@ -43,19 +43,29 @@ def main():
         rectWidth  = rectangleDimensions[2]
         rectHeight = rectangleDimensions[3]
         
+        #Version 1 - Doing from scratch
         if (mouseX + mouseRectWidth > rectX and mouseX < rectX + rectWidth and mouseY + mouseRectHeight > rectY and mouseY < rectY + rectHeight):
             #A collision happens!
             rectangleColor = (100,0,0)
         else:
             #no collision happened
             rectangleColor = (255,0,0)
-  
+
+        #Version 2 - Using built in Rect object for collision
+#         mouseRect = pygame.Rect(mouseRectangleDimensions)
+#         rectangleRect = pygame.Rect( rectangleDimensions)
+#         if mouseRect.colliderect(rectangleRect):        #A collision happens!
+#             rectangleColor = (100,0,0)
+#         else:
+#             #no collision happened
+#             rectangleColor = (255,0,0)
+   
         # We draw everything from scratch on each frame.
         # So first fill everything with the background color
         mainSurface.fill((0, 200, 255))
 
-        pygame.draw.rect(mainSurface, rectangleColor, rectangleDimensions) #Draw Rectangle
         pygame.draw.rect(mainSurface, mouseRectangleColor, mouseRectangleDimensions) #Draw mouseRectangle
+        pygame.draw.rect(mainSurface, rectangleColor, rectangleDimensions) #Draw Rectangle
         
 
         # Now the surface is ready, tell pygame to display it!
