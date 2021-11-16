@@ -1,13 +1,13 @@
 # File I/O Practice
 ## Part 1 - Text Files
 For the first part of this exercise assume you have a file called `students.txt` which simply contains a bunch of student names, one name per line. Your goal is to write two functions:
-* `add_student` - accepts a parameter of `first_name` and writes to a file called `students.txt`.
-* `find_student` - accepts a parameter of `first_name` and returns the first student found
+* `addStudent` - accepts a parameter of `firstName` and `lastName` and writes to a file called `students.txt`.
+* `findStudent` - accepts a parameter of `firstName` and returns the first student found
 
 ### Challenges
 Write the following additional functions:
-* `update_student` - accepts a parameter of `first_name` and `new_name` and updates first student found
-* `remove_student` - accepts a parameter of `first_name` and removes the student from the text file
+* `updateStudent` - accepts a parameter of `firstName` and `newName` and updates first student found
+* `removeStudent` - accepts a parameter of `firstName` and removes the student from the text file
 Add a unique id for each student so that you can find a student by their id instead of first name (which breaks if you have the same first name for multiple students)
 
 ## Part 2 - CSV (Comma Separated Values)
