@@ -120,4 +120,4 @@ The above program prompts the user with ```Enter your name: ``` and waits for th
 Note: Don't forget that if you want a numeric value from a user input you need to convert it to the correct type.
 
 ## Practice
-Make a simple [madlibs](https://www.madlibs.com/) program.
+Make a simple [madlibs](https://www.madtakes.com/) program.
