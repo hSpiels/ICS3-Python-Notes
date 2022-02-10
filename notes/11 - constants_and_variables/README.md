@@ -118,3 +118,6 @@ print(name)
 The above program prompts the user with ```Enter your name: ``` and waits for the user to enter information to continue.  Afterwards, it will then just print out the name entered.  For more examples, check the ```basics.py``` file above.
 
 Note: Don't forget that if you want a numeric value from a user input you need to convert it to the correct type.
+
+## Practice
+Make a simple [madlibs](https://www.madlibs.com/) program.
