@@ -1,4 +1,5 @@
 import pygame
+import random
 
 def main():
     """ Set up the game and run the main game loop """
@@ -8,7 +9,7 @@ def main():
     clock = pygame.time.Clock()  #Force frame rate to be slower
 
     # Create surface of (width, height), and its window.
-    mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
+    mainSurface = pygame.display.set_mode((1700, 350))
 
     # Set up some data to describe a small circle and its color
     circlePos = [50,100]  #X and Y Values
@@ -33,8 +34,8 @@ def main():
         
         #Move the circle
         #circlePos[0] = circlePos[0] +1
-        circlePos[0] += 1
-        circlePos2[0] += 1
+        circlePos[0] += random.randint(0, random.randint(4, 10))
+        circlePos2[0] += random.randint(0, random .randint(4, 10))
         
         # Draw a circle on the surface
         pygame.draw.circle(mainSurface, circleColor, circlePos, circleSize)
